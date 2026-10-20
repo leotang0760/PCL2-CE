@@ -1,23 +1,38 @@
-# Plain Craft Launcher · 下载恢复版
+# PCL2:CE By ZYT
 
-> **本仓库是 PCL 2.99.0.0 的二次修改版**，由 ᴢʜɪʏᴜᴀɴᴛ（QQ 2264958692）在官方开源版基础上，将 `ModSecret.vb` 中的 `RestrictMcDownload` 由 `True` 改回 `False`，恢复 MC 版本与整合包在线下载功能。
->
-> 预编译版下载见 [Releases](https://github.com/leotang0760/PCL2-Download-Restored/releases)。原作 © 龙腾猫跃 / 成都瓜皮龙科技有限公司，本修改仅用于学习研究。
+PCL 2.99.0.0 二次修改版 · 下载恢复版
+原作 © 龙腾猫跃 / 成都瓜皮龙科技有限公司 · 本修改仅用于学习研究
 
----
+## 这是什么
 
-[![Stars](https://img.shields.io/github/stars/Meloong-Git/PCL?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTggLjI1YS43NS43NSAwIDAgMSAuNjczLjQxOGwxLjg4MiAzLjgxNSA0LjIxLjYxMmEuNzUuNzUgMCAwIDEgLjQxNiAxLjI3OWwtMy4wNDYgMi45Ny43MTkgNC4xOTJhLjc1MS43NTEgMCAwIDEtMS4wODguNzkxTDggMTIuMzQ3bC0zLjc2NiAxLjk4YS43NS43NSAwIDAgMS0xLjA4OC0uNzlsLjcyLTQuMTk0TC44MTggNi4zNzRhLjc1Ljc1IDAgMCAxIC40MTYtMS4yOGw0LjIxLS42MTFMNy4zMjcuNjY4QS43NS43NSAwIDAgMSA4IC4yNVoiIGZpbGw9IiNlYWM1NGYiLz48L3N2Zz4=&logoSize=auto&label=Stars&labelColor=444444&color=eac54f)](https://github.com/Meloong-Git/PCL/)
-[![Issues](https://img.shields.io/github/issues/Meloong-Git/PCL?style=flat&label=Issues&labelColor=444444&color=1F883D)](https://github.com/Meloong-Git/PCL/issues)
-[![哔哩哔哩](https://img.shields.io/badge/动态-BiliBili-00A4DB?style=flat&labelColor=444444&logoSize=auto)](https://space.bilibili.com/11343203/dynamic)
-[![爱发电](https://img.shields.io/badge/赞助-爱发电-946ce6?style=flat&labelColor=444444&logoSize=auto)](https://meloong.com/afd/a/LTCat)
+PCL（Plain Craft Launcher）是 Windows 上最流行的 Minecraft 第三方启动器。
+官方在 2026 年 10 月合规调整中，于开源版加入了 RestrictMcDownload = True 开关，
+在 UI 层掐断了 MC 版本在线下载与整合包安装功能。
 
-包含 PCL 的大部分源代码，包括 UI 库、动画模块、下载模块、Minecraft 启动模块等！<br/>
-代码并不是实时更新的，它会在每次 PCL 发布更新时同步一次。<br/>
-非常感谢社区的大力支持！
+本仓库在官方开源版 2.99.0.0 基础上，仅做了一行修改恢复上述功能：
 
-<br/>
+    ' Plain Craft Launcher 2\Modules\ModSecret.vb 第 18 行
+    - Public Const RestrictMcDownload As Boolean = True
+    + Public Const RestrictMcDownload As Boolean = False
 
-### 相关资源
-- [PCL 下载](https://meloong.com/pcl)：下载可免费使用的正式版 PCL！
-- [PCL 功能投票](https://github.com/Meloong-Git/PCL/discussions/2)：来参加投票吧，开发者会优先处理票数较高的项目！
-- [帮助文档库](https://github.com/LTCatt/PCL2Help)：PCL 内置帮助文档的存储库
+原代码本就是 If/Else 双路径写好的，翻开关后所有拦截分支自动走回正常逻辑。
+
+## 二次修改信息
+
+| 项目 | 内容 |
+|---|---|
+| 修改作者 | Zhiyuant (QQ 2264958692) |
+| 修改基线 | PCL 官方开源版 Release 2.99.0.0 |
+| 修改内容 | 恢复 MC 版本下载、整合包在线安装；关于页追加二次修改说明卡片 |
+| 编译环境 | Visual Studio 2022 + .NET Framework 4.8 |
+
+## 下载预编译版
+
+前往 [Releases](https://github.com/leotang0760/PCL2-CE/releases) 下载
+PCL2-2.99-Download-Restored-win-x64.zip，解压后运行 Plain Craft Launcher 2.exe。
+
+## 免责声明
+
+- 本项目为学习研究用途的二次修改，不代表官方立场
+- 请勿用于商业用途
+- 本修改版不包含官方闭源模块（CDN 鉴权、赞助系统、正版登录 ClientId 等仍需自行配置）
